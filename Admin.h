@@ -1,8 +1,8 @@
 #pragma once
 #include"Employee.h"
-#include "Validation.h"
 #include"IDGenerator.h"
-#include<fstream>
+
+//Admin Class inherited everything from Class Employee
 
 class Admin : public Employee {
 private:
@@ -14,19 +14,13 @@ public:
 	}
 	Admin(string name, string password, double salary) : Employee(name, password, salary) {}
 	// Setters
-	void setName() {
-		Employee::setName();
-	}
-	void setPassword() {
-		Employee::setPassword();
-	}
+
 	int getID() {
 		return this->id;
 	}
 	void display() {
 		Employee::display();
 	}
-
 };
 
 IDGenerator Admin::idGenerator(2000);
