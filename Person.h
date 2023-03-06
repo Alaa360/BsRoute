@@ -5,21 +5,27 @@
 
 using namespace std;
 
-class Person
-{
+class Person{
 protected:
+    int id;
     string name;
     string password;
 public:
     Person() {
+        id = 0;
         name = "";
         password = "";
     }
-    Person(string name, string password) {
+    Person(int id, string name, string password) {
+        this->id = id;
         this->name = name;
         this->password = password;
     }
     ~Person() {}
+
+    void setID(int id) {
+        this->id = id;
+    }
 
     void setName(string name) {
         this->name = name;
@@ -32,6 +38,9 @@ public:
     }
     string getPassword(){
         return this->password;
+    }
+    int getID() {
+        return this->id;
     }
 };
 
