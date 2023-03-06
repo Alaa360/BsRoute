@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <string.h>
 #include "Person.h"
 #include "validation.h"
 
@@ -11,7 +11,6 @@ private:
 public:
     Client();
     Client(int id, string name, string password, double balance);
-    ~Client();
     void setName(string name);
     void setPassword(string password);
     void setBalance(double balance);

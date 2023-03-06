@@ -1,15 +1,15 @@
 #include "Client.h"
 
-
 Client::Client()
 {
     balance = 0;
 }
+
 Client::Client(int id, string name, string password, double balance) : Person(id, name, password)
 {
     this->balance = balance;
 }
-Client::~Client(){};
+
 void Client::setName(string name)
 {
     if (!Validation::checkName(name))
@@ -18,6 +18,7 @@ void Client::setName(string name)
     }
     this->name = name;
 }
+
 void Client::setPassword(string password)
 {
     if (!Validation::checkPassword(password))
@@ -26,6 +27,7 @@ void Client::setPassword(string password)
     }
     this->password = password;
 }
+
 void Client::setBalance(double balance)
 {
     if (balance < 1500)
@@ -37,19 +39,23 @@ void Client::setBalance(double balance)
         this->balance = balance;
     }
 }
+
 string Client::getName()
 {
-    return name;
+    return Person::name;
 }
+
 double Client::getBalance()
 {
     return balance;
 }
+
 void Client::deposit(double amount)
 {
     setBalance(getBalance() + amount);
     cout << "Deposit successful. New balance: " << getBalance() << endl;
 }
+
 void Client::withdraw(double amount)
 {
     if (getBalance() - amount < 1500)
@@ -62,6 +68,7 @@ void Client::withdraw(double amount)
         cout << "Withdrawal successful. New balance: " << getBalance() << endl;
     }
 }
+
 void Client::transferTo(double amount, Client &recipient)
 {
     if (getBalance() - amount < 1500)
@@ -80,6 +87,7 @@ void Client::checkBalance()
 {
     cout << "Current Balance= " << getBalance() << endl;
 }
+
 void Client::display()
 {
     cout << "ID: " << id << endl;
