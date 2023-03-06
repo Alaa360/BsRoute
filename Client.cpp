@@ -1,7 +1,6 @@
 #include "Client.h"
 #include "validation.h"
 
-
 Client::Client()
 {
     balance = 0;
@@ -13,29 +12,19 @@ Client::Client(int id, string name, string password, double balance) : Person(id
 Client::~Client(){};
 void Client::setName(string name)
 {
-    if (name.size() < 5 || name.size() > 20)
+    if (!Validation::checkName(name))
     {
-        cout << "Name must be between 5 and 20 characters." << endl;
-    }
-    for (int i = 0; i < name.size(); i++)
-    {
-        if (isalpha(name[i]) == false)
-        {
-            cout << "Name must contain only alphabetical characters." << endl;
-        }
+        return;
     }
     this->name = name;
 }
 void Client::setPassword(string password)
 {
-    if (password.size() < 8 || password.size() > 20)
+    if (!Validation::checkPassword(password))
     {
-        cout << "Please enter a password between 8-20 Character";
+        return;
     }
-    else
-    {
-        this->password = password;
-    }
+    this->password = password;
 }
 void Client::setBalance(double balance)
 {

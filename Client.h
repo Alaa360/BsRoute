@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "person.h"
+#include "Person.h"
 
 class Client : public Person
 {
