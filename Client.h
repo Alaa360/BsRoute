@@ -1,11 +1,3 @@
-#include <iostream>
-#include <string>
-#include "Person.h"
-
-class Client : public Person
-{
-private:
-    double balance;
 
 public:
     Client();
