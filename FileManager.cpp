@@ -6,19 +6,15 @@
 using namespace std;
 
 static void FileManager::addClient(Client c){
-
     file.open("Clients.txt",ios::app);
 
-	/* int id = getLast("saveClientLastId.txt") + 1; */
 	file << c.getID() << ',' << c.getName() << ',' << c.getPassword() << ',' << c.getBalance() << "\n";
 	file.close();
-	/* saveLast("saveClientLastId.txt", id); */
-    
+
     system("pause");
 }
 
 static void FileManager::addEmployee(Employee e){
-
     file.open("Employee.txt",ios::app);
 	
 	file << e.getID() << ',' << e.getName() << ',' << e.getPassword() << ',' << e.getBalance() << "\n";
@@ -28,7 +24,6 @@ static void FileManager::addEmployee(Employee e){
 }
 
 static void FileManager::addAdmin(Admin a){
-
     file.open("Admin.txt",ios::app);
 	
 	file << a.getID() << ',' << a.getName() << ',' << a.getPassword() << ',' << a.getBalance() << "\n";
@@ -37,8 +32,7 @@ static void FileManager::addAdmin(Admin a){
     system("pause");
 }
 
-vector<Client> FileManager::getAllClients(){
-	
+vector<Client> FileManager::getAllClients(){	
 	file.open("Clients.txt", ios::out);
 	string line;
 	while (getline(file, line)) {
@@ -47,8 +41,7 @@ vector<Client> FileManager::getAllClients(){
 	}
 }
 
-vector<Employee> FileManager::getAllEmployees(){
-	
+vector<Employee> FileManager::getAllEmployees(){	
 	file.open("Employee.txt");
 	string line;
 	while (getline(file, line)) {
@@ -66,14 +59,17 @@ vector<Admin> FileManager::getAllAdmins(){
 	}
 }
 
-/* void FileManager::removeAllClients(){
-    file.open("Clients.txt", ios::in | ios::out);
-    file.clear();
-	string line;
-	while (getline(file, line)) {
-		if (line[0] = stoi(lastIdFile)) {
-			line.clear();
-		}
-	}
+void FileManager::removeAllClients(){    
+	file.open("Clients.txt", ios::out | ios::trunc);
 	file.close();
-} */
+}
+
+void FileManager::removeAllEmployees(){    
+	file.open("Employees.txt", ios::out | ios::trunc);
+	file.close();
+}
+
+void FileManager::removeAllAdmins(){    
+	file.open("Admins.txt", ios::out | ios::trunc);
+	file.close();
+}
